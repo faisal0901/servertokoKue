@@ -1,0 +1,127 @@
+
+<%- include("../../Partials/Header.ejs")%>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <%- include("../../Partials/Sidebar.ejs")%>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include("../../Partials/Navbar.ejs")%>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="card shadow mb-4 mt-2">
+                <div class="card-body">
+                  <form action="/admin/produk/edit-produk/<%=produk[0].id  %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="name">Nama Produk</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="namaProduk"
+                        value=" <%=produk[0].namaProduk %>"
+                        placeholder="Enter title"
+                        required
+                       
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">harga</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="harga"
+                        value="<%=produk[0].harga %>"
+                        placeholder="harga"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">ukuran</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="ukuran"
+                       value="<%=produk[0].ukuran %>" 
+                        placeholder="ukuran"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">stok</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="stok"
+                        value="<%=produk[0].stok %>"
+                        placeholder="stok"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Category</label>
+                      <select class="form-control" name="kategoriId">
+                       
+                        <option value="  <%= produk[0].kategoriId %>">
+                            <%= produk[0].kategoriName %>
+                          </option>
+                        <% for(let i = 0; i< category.length; i++){ %>
+                        <option value="  <%= category[i].id %>">
+                          <%= category[i].kategoriName %>
+                        </option>
+                        <%}%>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Image</label>
+                      <input
+                        type="file"
+                        class="form-control"
+                        name="image"
+                        multiple
+                      
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Description</label>
+                      <textarea name="deskripsi" class="form-control"> <%=produk[0].deskripsi%></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+                </div>
+              </div>
+            
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include("../../Partials/Footer.ejs")%>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+   
+
+    <!-- Bootstrap core JavaScript-->
+    <%- include("../../Partials/js.ejs")%>
+  </body>
+</html>

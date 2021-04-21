@@ -1,0 +1,40 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>no</th>
+              <th>rating</th>
+              <th>text</th>
+              <th>nama</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i =0;i<ulasan.length;i++) {%>
+              <tr>
+               <td> <%= i+1 %></td>
+               <td> <%= ulasan[i].rating %></td>
+               <td> <%= ulasan[i].textUlasan %></td>
+               <td> <%= ulasan[i].nama %></td>
+               <td>
+                 <form action="/admin/ulasan/<%=ulasan[i].id %>?_method=DELETE" method="POST" >
+                    <button type="submit" class="btn btn-danger btn-circle btn-sm">  <i class="fas  fa-trash"></i></button>
+                 </form>
+                </td>
+              </tr>
+            <%} %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

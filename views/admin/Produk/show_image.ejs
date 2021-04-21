@@ -1,0 +1,49 @@
+<!-- <%-include('../../Partials/Header.ejs')%>
+<!-- Page Wrapper -->
+<div id="wrapper">
+  <!-- Sidebar -->
+  <%-include('../../Partials/Sidebar.ejs')%>
+  <!-- End of Sidebar -->
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Main Content -->
+    <div id="content">
+      <!-- Topbar -->
+      <%-include('../../Partials/Navbar.ejs')%>
+
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+          <% for( let i = 0; i < image.length; i++ ) { %>
+          <div class="col-3">
+            <img
+              src="http://localhost:3001/<%= image[i].ImagesUrl %> "
+              class="img-fluid"
+            />
+          </div>
+
+          <% } %>
+        </div>
+        <!-- Button trigger modal -->
+        <a
+          href="http://localhost:3001/admin/produk/"
+          class="btn btn-warning btn- lg"
+        >
+          back</a
+        >
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <%-include('../../Partials/Footer.ejs')%>
+    </div>
+  </div>
+  <%-include('../../Partials/js.ejs')%>
+</div>
+
+-->

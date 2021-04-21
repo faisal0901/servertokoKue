@@ -1,0 +1,72 @@
+<div class="card shadow mb-4 mt-2">
+  <div class="card-body">
+    <form action="/admin/produk" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Nama Produk</label>
+        <input
+          type="text"
+          class="form-control"
+          name="namaProduk"
+          placeholder="Enter title"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">harga</label>
+        <input
+          type="number"
+          class="form-control"
+          name="harga"
+          placeholder="harga"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">ukuran</label>
+        <input
+          type="text"
+          class="form-control"
+          name="ukuran"
+          placeholder="ukuran"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">stok</label>
+        <input
+          type="number"
+          class="form-control"
+          name="stok"
+          placeholder="ukuran"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Category</label>
+        <select class="form-control" name="kategoriId">
+          <option value="">--- Category ---</option>
+          <% for(let i = 0; i< category.length; i++){ %>
+          <option value="  <%= category[i].id %>">
+            <%= category[i].kategoriName %>
+          </option>
+          <%}%>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="name">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          name="image"
+          multiple
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Description</label>
+        <textarea name="deskripsi" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>

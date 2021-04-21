@@ -1,0 +1,46 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+  
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>no</th>
+              <th>Nama Produk</th>
+              <th>Ukuran</th>
+              <th>harga</th>
+              <th>stok</th>
+              <th>kategori</th>
+              <th>action</th>      
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i=0;i<produk.length;i++) {%>
+              <tr>
+               <td> <%= i+1 %></td>
+               <td> <%= produk[i].namaProduk %></td>
+               <td> <%= produk[i].ukuran %></td>
+               <td> <%= produk[i].harga %></td>
+               <td> <%= produk[i].stok %></td>
+               <td> <%= produk[i].kategoriName %></td>
+               <td>
+                 <form action="/admin/produk/<%=produk[i].id %>?_method=DELETE" method="POST" >
+                  <a href="/admin/produk/image-details/<%= produk[i].id %>" class="btn btn-info btn-sm btn-circle"> <i class="fas fa-image"></i></a>
+                    <a href="/admin/produk/edit-produk/<%= produk[i].id %>" type="button" class="btn btn-warning btn-circle btn-sm button-update">  <i class="fas  fa-edit"></i></a>
+                    <button type="submit" class="btn btn-danger btn-circle btn-sm">  <i class="fas  fa-trash"></i></button>
+                 </form>
+                </td>
+              </tr>
+            <%}%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

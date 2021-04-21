@@ -1,0 +1,57 @@
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/admin/faq?_method=PUT" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1">tanya</label>
+            <input
+              type="text"
+              class="form-control tanya"
+              name="tanya"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter kategori"
+            />
+            <label for="exampleInputEmail1">jawab</label>
+            <input
+              type="text"
+              class="form-control jawab"
+              name="jawab"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter kategori"
+            />
+            <input
+              type="hidden"
+              class="form-control id"
+              name="id"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter kategori"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">edit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

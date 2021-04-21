@@ -1,0 +1,29 @@
+produk
+-id
+-ukuran
+-imageId
+-namaProduk
+-harga
+-deskripsi
+-stok
+-kategoriId
+kategori
+-id
+-kategoriName
+ulasan
+-id
+-rating
+-userName
+-textUlasan
+Faq
+-id
+-tanya
+-jawab
+Images
+-id
+-url
+
+
+--kalo ada image
+--hapus image sebelumnya
+--ganti image yang baru di upload
