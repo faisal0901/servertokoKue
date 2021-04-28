@@ -2,10 +2,10 @@ const knex = require("knex")({
   client: "mysql",
   version: "5.7",
   connection: {
-    host: "127.0.0.1",
-    user: "root",
-    password: "",
-    database: "tokoKue",
+    host: "sql6.freemysqlhosting.net",
+    user: "sql6408843",
+    password: "PkN1IKbiJh",
+    database: "sql6408843",
   },
 });
 module.exports = knex;
