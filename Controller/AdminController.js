@@ -8,6 +8,11 @@ module.exports = {
       res.render("admin/view_dashboard");
     } catch (error) {}
   },
+  viewLogin: async (req, res) => {
+    try {
+      res.render("admin/view_dashboard");
+    } catch (error) {}
+  },
   viewCategory: async (req, res) => {
     try {
       const alertMassage = req.flash("alertMassage");

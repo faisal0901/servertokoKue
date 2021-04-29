@@ -50,7 +50,6 @@ module.exports = {
 
       const produk = await knex("produk")
         .join("kategori", "produk.kategoriId", "kategori.id")
-
         .where("produk.id", id);
       const image = await knex
         .select("*")
@@ -77,6 +76,7 @@ module.exports = {
           "produk.harga",
           "produk.id"
         )
+
         .limit(4);
       const other = [];
       for (let i = 0; i < rawData.length; i++) {
@@ -104,10 +104,10 @@ module.exports = {
     const data = await knex("produk")
       .join("kategori", "produk.kategoriId", "kategori.id")
       .where("produk.kategoriId", id)
+
       .select("produk.*");
     const produk = [];
     for (let i = 0; i < data.length; i++) {
-
       let image = await knex
         .select("*")
         .from("ImagesProduct")
