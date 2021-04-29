@@ -1,4 +1,5 @@
 const knex = require("../Models/koneksi");
+const bcrypt = require("bcryptjs");
 module.exports = {
   homePage: async (req, res) => {
     try {
@@ -122,5 +123,28 @@ module.exports = {
       });
     }
     res.json({ produk }).status(200);
+  },
+  register: async (req, res) => {
+    try {
+      const { username, email, password } = req.body;
+      const checkUser = await knex
+        .select("*")
+        .from("user")
+        .where("email", email);
+
+      if (checkUser.length === 0) {
+        await knex("user").insert({
+          username,
+          email,
+          password: await bcrypt.hash(password, 8),
+          Create_at: new Date(),
+        });
+        res.json({ massage: "data berhasil di registrasi" });
+      } else {
+        res.json({ massage: "email sudah terdaftar" });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 };

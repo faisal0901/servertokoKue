@@ -1,7 +1,7 @@
 const knex = require("../Models/koneksi");
 const fs = require("fs-extra");
 const path = require("path");
-
+const bcrypt = require("bcryptjs");
 module.exports = {
   viewDashboard: async (req, res) => {
     try {
@@ -10,8 +10,41 @@ module.exports = {
   },
   viewLogin: async (req, res) => {
     try {
-      res.render("admin/view_dashboard");
-    } catch (error) {}
+      const alertMassage = req.flash("alertMassage");
+      const alertStatus = req.flash("alertStatus");
+      const alert = { massage: alertMassage, status: alertStatus };
+      res.render("login", { title: "login toko kue", alert });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  actionLogin: async (req, res) => {
+    try {
+      const { email, password } = req.body;
+
+      const user = await knex.select("*").from("user").where("email", email);
+
+      if (user) {
+        const isPasswordMatch = await bcrypt.compare(
+          password,
+          user[0].password
+        );
+        if (isPasswordMatch) {
+          req.session.user = {
+            username: user[0].username,
+            id: user[0].id,
+          };
+          console.log(req.session.user);
+          res.redirect("/admin/dashboard");
+        } else {
+          res.redirect("/admin/login");
+        }
+      } else {
+        res.redirect("/admin/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
   viewCategory: async (req, res) => {
     try {
